@@ -13,24 +13,24 @@ var sharedata = {
     'qdesc':'爱奇艺免会员去广告直接观看。播放次数:32098768次',//分享到朋友圈的链接的标题
     'success':function(res){
 		
-        if(res == "friend"){ 
-            friend_num++; 
+        // if(res == "friend"){ 
+            // friend_num++; 
 
-            if (friend_num >= 3) {
-				layer.open({type: 1,title: false,shadeClose: true,area: '300px',offset:'160px',closeBtn:0,  content: '<div style="padding: 18px; line-height: 26px;text-align:center;font-size:16px;">分享到【微信群】成功，播放视频只差最后一步分享到朋友圈!</div>'});
-                // alert();
-            }else{ 
+            // if (friend_num >= 3) {
+				// layer.open({type: 1,title: false,shadeClose: true,area: '300px',offset:'160px',closeBtn:0,  content: '<div style="padding: 18px; line-height: 26px;text-align:center;font-size:16px;">分享到【微信群】成功，播放视频只差最后一步分享到朋友圈!</div>'});
+                // // alert();
+            // }else{ 
 				
-				layer.open({type: 1,title: false,shadeClose: true,area: '300px',offset:'160px',closeBtn:0, content: '<div style="padding: 18px; line-height: 26px;text-align:center;font-size:16px;">分享到【微信群】成功，播放视频还需分享 <font color="red">' + (3- friend_num) + '次</font>!</div>'});
+				// layer.open({type: 1,title: false,shadeClose: true,area: '300px',offset:'160px',closeBtn:0, content: '<div style="padding: 18px; line-height: 26px;text-align:center;font-size:16px;">分享到【微信群】成功，播放视频还需分享 <font color="red">' + (3- friend_num) + '次</font>!</div>'});
                 
-            }
-        }else if(res == "timeline"){
-			alert(friend_num);
-            if(friend_num >= 3){
-                 location.href = 'play.html';//所有分享完成后，最后跳转的链接 -->
-            }else{
-                alert('请先分享到微信群!');
-            }
-        } 
+            // }
+        // }else if(res == "timeline"){
+			// alert(friend_num);
+            // if(friend_num >= 3){
+                 // location.href = 'play.html';//所有分享完成后，最后跳转的链接 -->
+            // }else{
+                // alert('请先分享到微信群!');
+            // }
+        // } 
     }
 };
