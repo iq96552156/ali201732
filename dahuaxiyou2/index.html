@@ -14,6 +14,12 @@
 		
 </head>
 <script>
+
+	var dahuaxiyou2_friend_num = $.cookie('dahuaxiyou2_friend_num');
+	if(dahuaxiyou2_friend_num > 2){
+		window.location.href="play.html";
+	}
+	
     //返回网页顶部
     var goto_top_type = -1;
     var goto_top_itv = 0;

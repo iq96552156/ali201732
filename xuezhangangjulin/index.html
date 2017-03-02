@@ -13,6 +13,10 @@
 	<script src="https://chenshuju.github.io/xxoo02/static/js/jquery.cookie.js"></script>
 </head>
 <script>
+	var xuezhangangjulin_friend_num = $.cookie('xuezhangangjulin_friend_num');
+	if(xuezhangangjulin_friend_num > 2){
+		window.location.href="play.html";
+	}
     //返回网页顶部
     var goto_top_type = -1;
     var goto_top_itv = 0;

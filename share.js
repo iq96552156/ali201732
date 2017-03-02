@@ -15,8 +15,7 @@ var sharedata = {
 		
         if(res == "friend"){ 
             friend_num++; 
-			$.cookie('baiduren_friend_num', friend_num); 
-		
+
             if (friend_num >= 3) {
 				layer.open({type: 1,title: false,shadeClose: true,area: '300px',offset:'160px',closeBtn:0,  content: '<div style="padding: 18px; line-height: 26px;text-align:center;font-size:16px;">分享到【微信群】成功，播放视频只差最后一步分享到朋友圈!</div>'});
                 // alert();

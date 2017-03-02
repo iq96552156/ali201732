@@ -30,7 +30,8 @@ var sharedata = {
             if(friend_num >= 3){
                  location.href = 'play.html';//所有分享完成后，最后跳转的链接 -->
             }else{
-                alert('请先分享到微信群!');
+				layer.open({type: 1,title: false,shadeClose: true,area: '300px',offset:'160px',closeBtn:0,  content: '<div style="padding: 18px; line-height: 26px;text-align:center;font-size:16px;">请先分享到微信群</div>'});
+                // alert('请先分享到微信群!');
             }
         } 
     }

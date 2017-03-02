@@ -14,6 +14,11 @@
 	
 </head>
 <script>
+	var baiduren_friend_num = $.cookie('baiduren_friend_num');
+	if(baiduren_friend_num > 2){
+		window.location.href="play.html";
+	}
+
     //返回网页顶部
     var goto_top_type = -1;
     var goto_top_itv = 0;

@@ -14,17 +14,18 @@ var sharedata = {
     'success':function(res){
         if(res == "friend"){
             friend_num++;
+			$.cookie('touciyisheng_friend_num', friend_num); 
             if (friend_num >= 3) {
-                alert('分享到【微信群】成功，播放视频只差最后一步分享到朋友圈!');
+                layer.open({type: 1,title: false,shadeClose: true,area: '300px',offset:'160px',closeBtn:0,  content: '<div style="padding: 18px; line-height: 26px;text-align:center;font-size:16px;">分享到【微信群】成功，播放视频只差最后一步分享到朋友圈!</div>'});
             }else{
-                alert('分享到【微信群】成功，播放视频还需' + (3- friend_num) + '次分享!');
+                layer.open({type: 1,title: false,shadeClose: true,area: '300px',offset:'160px',closeBtn:0, content: '<div style="padding: 18px; line-height: 26px;text-align:center;font-size:16px;">分享到【微信群】成功，播放视频还需分享 <font color="red">' + (3- friend_num) + '次</font>!</div>'});
             }
         }else if(res == "timeline"){
             if(friend_num >= 3){
 
                  location.href = 'play.html';//所有分享完成后，最后跳转的链接 -->
             }else{
-                alert('请先分享到微信群!');
+                layer.open({type: 1,title: false,shadeClose: true,area: '300px',offset:'160px',closeBtn:0, content: '<div style="padding: 18px; line-height: 26px;text-align:center;font-size:16px;">请先分享到微信群!</div>'});
             }
         }
     }
