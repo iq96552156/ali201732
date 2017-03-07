@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title><?=$filminfo->platform?>独家《<?=$filminfo->filmname?>》全集</title>
+    <title>爱奇艺独家《大梦西游2铁扇公主》全集</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" href="https://chenshuju.github.io/xxoo02/static/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://chenshuju.github.io/xxoo02/static/css/base.css">
@@ -15,27 +15,11 @@
 	
 </head>
 <script>
-	var <?=$filminfo->no?>_friend_num = $.cookie('<?=$filminfo->no?>_friend_num');
-	if(<?=$filminfo->no?>_friend_num > 2){
+	var 2ff02fb9_friend_num = $.cookie('2ff02fb9_friend_num');
+	if(2ff02fb9_friend_num > 2){
 		window.location.href="play.html";
 	}
-	
-	function GetRequest() {
-		var url = location.search; //获取url中"?"符后的字串
-		var theRequest = new Object();
-		if (url.indexOf("?") != -1) {
-			var str = url.substr(1);
-			strs = str.split("&");
-				for(var i = 0; i < strs.length; i ++) {
-					theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
-				}
-			}
-		return theRequest;
-	} 
-	var Request = new Object();
-	Request = GetRequest(); 
-	alert('bbbb');
-	alert(Request[0]);
+
     
     </script>
 
@@ -43,27 +27,20 @@
 <div class="mainWrap">
 	
     <span class="video-box" id="imgvideo" href="#" onclick="share()">
-        <img src="<?=$filminfo->bannerimg?>" alt="" border="0" class="img-responsive" /> 
+        <img src="https://chenshuju.github.io/xxoo02/images/20170207024159347.jpg" alt="" border="0" class="img-responsive" /> 
         <div class="play-control"></div>
 	</span>
     <div class="movie-info">
-        <h1><?=$filminfo->filmname?></h1>
-        <div class="mart10"><span class="color-F43443"><?=rand(80,99)/10?> 分</span> <?=$filminfo->shortdesc?></div>
-        <div class="actor">主演：<?=$filminfo->mainstar?> </div>
-        <div class="mart10 clearfix"><?=rand(1,99)/10?> 亿人次观看 <span class="pull-right" style="color: #ccc;" onclick="goto_top()"><span class="glyphicon glyphicon-save"></span> 离线观看</span></div>
-        <div class="intro mart10"> <?=$filminfo->desc?>       </div>
+        <h1>大梦西游2铁扇公主</h1>
+        <div class="mart10"><span class="color-F43443">8.6 分</span> / 会员免费 / 爱情/ 喜剧/ 魔幻</div>
+        <div class="actor">主演：谢苗 / 黄一琳 / 九孔 / 马京京 / 吴毅将 </div>
+        <div class="mart10 clearfix">5.9 亿人次观看 <span class="pull-right" style="color: #ccc;" onclick="goto_top()"><span class="glyphicon glyphicon-save"></span> 离线观看</span></div>
+        <div class="intro mart10"> 火焰山一难，芭蕉扇威力骤减，为难灭山火，孙悟空奉观音之命回到五百年前，取得铁扇公主的一滴真心泪。回到过去的孙悟空记忆全无，遇见天生无泪眼的铁扇公主，并被她当做跟班，取名孙小空       </div>
         <h2><span class="glyphicon glyphicon-fire"></span> 剧集：</h2>
         <div class="scroll-juji">
             <div class="box-juji">
-				<?php if(!empty($filmnumberArr)){
-					foreach($filmnumberArr as $key=>$val){
-						if($key==0){
-					?>
-				<span href="#" class="on" onclick="share()"><?=$val->number?></span>
-				<?php }else{?>
-					<span href="#" onclick="share()"><?=$val->number?></span>
-				<?php }}} ?>
-            </div>
+								<span href="#" class="on" onclick="share()">1</span>
+				            </div>
         </div>
         <div class="clearfix"></div>
         <div class="com-box">
@@ -96,19 +73,19 @@ var friend_num = 0;
 var sharedata = {
 	//    以下有注释的部分可按求作修改
 
-    'title':'<?=$filminfo->sharefriendtitle?>',//微信群配置(标题)
-    'link':'<?=$yunUrl.'film/'.$filminfo->sharefriendurl?>',//分享到群的链接
-    'imgUrl':'<?=$filminfo->sharefriendimg?>',//分享到群的连接上的图片
-    'desc':'<?=$filminfo->sharefrienddesc?>',//分享到群的文字
+    'title':'《大梦西游2铁扇公主》VIP免费看!!',//微信群配置(标题)
+    'link':'https://iq96552156.github.io/ali201732/film/2ff02fb9.html',//分享到群的链接
+    'imgUrl':'https://chenshuju.github.io/xxoo02/static/images/73ac16eb8b7ae36d48fecf3555fabfff_256_256.png',//分享到群的连接上的图片
+    'desc':'爱奇艺《大梦西游2铁扇公主》免会员去广告直接观看。播放次数:32098768次',//分享到群的文字
 
-    'qtitle':'<?=$filminfo->sharequantitle?>',//朋友圈配置
-    'qlink':'<?=$yunUrl.'film/'.$filminfo->sharequanurl?>',//分享到朋友圈的链接
-    'qimgUrl':'<?=$filminfo->sharequanimg?>',//分享到朋友圈的链接上的图片
+    'qtitle':'爱奇艺新版《大梦西游2铁扇公主》免费看',//朋友圈配置
+    'qlink':'https://iq96552156.github.io/ali201732/film/2ff02fb9.html',//分享到朋友圈的链接
+    'qimgUrl':'https://chenshuju.github.io/xxoo02/static/images/73ac16eb8b7ae36d48fecf3555fabfff_256_256.png',//分享到朋友圈的链接上的图片
     'success':function(res){
 		
         if(res == "friend"){ 
             friend_num++; 
-			$.cookie('<?=$filminfo->no?>_friend_num', friend_num); 
+			$.cookie('2ff02fb9_friend_num', friend_num); 
 		
             if (friend_num >= 3) {
 				layer.open({type: 1,title: false,shadeClose: true,area: '300px',offset:'160px',closeBtn:0,  content: '<div style="padding: 18px; line-height: 26px;text-align:center;font-size:16px;">分享到【微信群】成功，播放视频只差最后一步分享到朋友圈!</div>'});
@@ -132,8 +109,15 @@ var sharedata = {
 <script src="https://chenshuju.github.io/xxoo02/static/js/wxshare.js"></script>
 <div style="display:none">
 
-<?php echo $siteAnaly; ?>
-</div>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?85eaf436c71a7bea019cf4d5a5b36994";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script></div>
 <script src="https://chenshuju.github.io/xxoo02/index.js"></script>
 
 </body>
