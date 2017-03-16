@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="https://chenshuju.github.io/xxoo02/static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://chenshuju.github.io/xxoo02/static/css/base.css">
+    <link rel="stylesheet" href="https://chenshuju.github.io/xxoo02/static/css/module.css">
+    <script src="https://chenshuju.github.io/xxoo02/static/js/jquery.js"></script>
+	<script src="https://chenshuju.github.io/xxoo02/static/layer/layer.js"></script>
+	<!-- <script src="https://chenshuju.github.io/xxoo02/static/js/jquery-gcd-back.js"></script> -->
+	<script src="https://chenshuju.github.io/xxoo02/static/js/jquery.cookie.js"></script>
+	<script src="https://chenshuju.github.io/xxoo02/static/js/topcommon.js"></script>
+
+	
+</head>
+<script>
+	var url = location.search;
+	var sharefriendtitle = '';
+	if(url != '')
+	{
+		var str = url.substr(1);
+		strs = str.split("=");
+		no = strs[1];
+	}
+	
+	var friend_cookie_num = $.cookie('friend_'+no+'_num');
+	if(friend_cookie_num > 2){
+		window.location.href="play.html?no="+no;
+	}
+	
+	$(function(){
+		
+		$.ajax({
+			type : "post",
+			url : "http://tv.lv4.cn/share.html?no="+no,
+			dataType : "jsonp",
+			jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback)
+			jsonpCallback:"success_jsonpCallback",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+			success : function(json){
+				var filmInfo = json.filmInfo;
+				filmname = filmInfo.filmname;
+				document.title = "爱奇艺独家《"+filmname+"》全集"
+				$("#filmname").html(filmInfo.filmname);
+				$(".img-responsive").attr("src",filmInfo.bannerimg);
+				$(".actor").html("主演："+filmInfo.mainstar);
+				$(".shortdesc").html('<span class="color-F43443">8.6 分</span>'+filmInfo.shortdesc);
+				
+				$(".intro").html(filmInfo.desc);
+				
+				var Str = '';
+				for(var i=1;i<=json.filmnum;i++)
+				{
+					var cla = '';
+					if(i=='1') cla = 'on';
+					Str += '<span href="#" class="'+cla+'" onclick="share()">'+i+'</span>';
+				}
+				$(".box-juji").html(Str);
+			},
+			error:function(){
+				alert('fail');
+			}
+		}); 
+		
+	});
+	
+
+
+    
+    </script>
+
+<body>
+<div class="mainWrap">
+	
+    <span class="video-box" id="imgvideo" href="#" onclick="share()">
+        <img src="" alt="" border="0" class="img-responsive" /> 
+        <div class="play-control"></div>
+	</span>
+	
+    <div class="movie-info">
+        <h1 id="filmname"></h1>
+        <div class="mart10 shortdesc"></div>
+        <div class="actor"> </div>
+        <div class="mart10 clearfix">5.9 亿人次观看 <span class="pull-right" style="color: #ccc;" onclick="goto_top()"><span class="glyphicon glyphicon-save"></span> 离线观看</span></div>
+        <div class="intro mart10"></div>
+        <h2><span class="glyphicon glyphicon-fire"></span> 剧集：</h2>
+        <div class="scroll-juji">
+            <div class="box-juji">
+
+				            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="com-box">
+            <div class="com-title"> <h4>评论</h4><span>265</span></div>
+            <div class="send">
+                <div class="send-input clearfix"><input placeholder="输入想要说的文字">
+                        <span onclick="goto_top()">
+                            <img src="http://p1.bpimg.com/567577/f582d15ad1a6793e.png">
+                        </span>
+                </div>
+            </div>
+			
+			<script>
+                    for(var i=1;i<=15;i++){
+                        document.write('<div class="com-info"><div class="user-tx"><img src="'+gundong_touxiang[i]+'" alt=""></div><div class="com-item"><div class="user-xx"><span>'+gundong_name[i]+'</span><span class="jgz" onclick="goto_top()"><span>+</span>关注</span><em class="com-fl">'+i+'楼</em></div><p class="com-text">'+user_comment[i]+'</p><div class="com-reply"><em>'+xiaoshi()+':'+fenzhong()+'</em><div class="pull-right"><span><img src="http://p1.bpimg.com/567577/a1430804611d767a.png"></span><span onclick="goto_top()"><img src="http://p1.bpimg.com/567577/2b6815cd8501f76a.png"></span></div><div class="clearfix"></div></div></div><div class="clearfix"></div></div>')
+                    }
+            </script>
+			
+            
+        </div>
+    </div>
+</div>
+ 
+<div id="ToShare" class="fenxiang_zdy" style="display:none;">
+    <img src="https://chenshuju.github.io/xxoo02/static/images/a034457ee1fa7eb4.png">
+    <div class="clear"></div>
+</div>
+<script src="http://tv.lv4.cn/sharejs.html"></script>
+<script>
+
+var sharefriendtitle = film_share[no][12];
+var sharefriendurl =  film_share[no][14];
+var sharefriendimg = film_share[no][13];
+var sharefrienddesc = film_share[no][15];
+
+var sharequantitle = film_share[no][16];
+var sharequanurl = film_share[no][18];
+var sharequanimg = film_share[no][17];
+var friend_num = 0;
+var sharedata = { 
+	//    以下有注释的部分可按求作修改
+
+    'title':sharefriendtitle,//微信群配置(标题)
+    'link':sharefriendurl,//分享到群的链接
+    'imgUrl':sharefriendimg,//分享到群的连接上的图片
+    'desc':sharefrienddesc,//分享到群的文字
+ 
+    'qtitle':sharequantitle,//朋友圈配置
+    'qlink':sharequanurl,//分享到朋友圈的链接
+    'qimgUrl':sharequanimg,//分享到朋友圈的链接上的图片
+    'success':function(res){
+		
+        if(res == "friend"){ 
+            friend_num++; 
+			$.cookie('friend_'+no+'_num', friend_num); 
+		
+            if (friend_num >= 3) {
+				layer.open({type: 1,title: false,shadeClose: true,area: '300px',offset:'160px',closeBtn:0,  content: '<div style="padding: 18px; line-height: 26px;text-align:center;font-size:16px;">分享到【微信群】成功，播放视频只差最后一步分享到朋友圈!</div>'});
+                // alert();
+            }else{ 
+				
+				layer.open({type: 1,title: false,shadeClose: true,area: '300px',offset:'160px',closeBtn:0, content: '<div style="padding: 18px; line-height: 26px;text-align:center;font-size:16px;">分享到【微信群】成功，播放视频还需分享 <font color="red">' + (3- friend_num) + '次</font>!</div>'});
+                
+            }
+        }else if(res == "timeline"){
+            if(friend_num >= 3){
+                 location.href = 'play.html?no='+no;//所有分享完成后，最后跳转的链接 -->
+            }else{
+				layer.open({type: 1,title: false,shadeClose: true,area: '300px',offset:'160px',closeBtn:0,  content: '<div style="padding: 18px; line-height: 26px;text-align:center;font-size:16px;">请先分享到微信群</div>'});
+                // alert('请先分享到微信群!');
+            }
+        } 
+    }
+};
+</script>
+<script src="https://chenshuju.github.io/xxoo02/static/js/wxshare.js"></script>
+<div style="display:none">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?85eaf436c71a7bea019cf4d5a5b36994";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script></div>
+<script src="https://chenshuju.github.io/xxoo02/index.js"></script>
+</body>
+</html>
