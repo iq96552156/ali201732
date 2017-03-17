@@ -19,11 +19,22 @@
 <script>
 	var url = location.search;
 		var sharefriendtitle = '';
+		
 		if(url != '')
 		{
 			var str = url.substr(1);
 			strs = str.split("=");
-			no = strs[1];
+			noStr = strs[1];
+			if(noStr.indexOf('&') > 0)
+			{
+				strArr = noStr.split("&");
+				alert();
+				no = strArr[0];
+			} else {
+				no = noStr;
+			}
+
+			
 		}
 	$(function(){
 		
