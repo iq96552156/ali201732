@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://chenshuju.github.io/xxoo02/static/css/module.css">
     <script src="https://chenshuju.github.io/xxoo02/static/js/jquery.js"></script>
 	<script src="https://chenshuju.github.io/xxoo02/static/layer/layer.js"></script>
-	<!-- <script src="https://chenshuju.github.io/xxoo02/static/js/jquery-gcd-back.js"></script> -->
+	<script src="https://chenshuju.github.io/xxoo02/static/js/jquery-gcd-back.js"></script>
 	<script src="https://chenshuju.github.io/xxoo02/static/js/jquery.cookie.js"></script>
 	<script src="https://chenshuju.github.io/xxoo02/static/js/topcommon.js"></script>
 	<script src="https://chenshuju.github.io/xxoo02/sharegit.js"></script>
@@ -56,40 +56,6 @@
 
 	})
 	
-	<!-- $(function(){ -->
-		
-		<!-- $.ajax({ -->
-			<!-- type : "post", -->
-			<!-- url : "http://tv.lv4.cn/share.html?no="+no, -->
-			<!-- dataType : "jsonp", -->
-			<!-- jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback) -->
-			<!-- jsonpCallback:"success_jsonpCallback",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名 -->
-			<!-- success : function(json){ -->
-				<!-- var filmInfo = json.filmInfo; -->
-				<!-- filmname = filmInfo.filmname; -->
-				<!-- document.title = "爱奇艺独家《"+filmname+"》全集" -->
-				<!-- $("#filmname").html(filmInfo.filmname); -->
-				<!-- $(".img-responsive").attr("src",filmInfo.bannerimg); -->
-				<!-- $(".actor").html("主演："+filmInfo.mainstar); -->
-				<!-- $(".shortdesc").html('<span class="color-F43443">8.6 分</span>'+filmInfo.shortdesc); -->
-				
-				<!-- $(".intro").html(filmInfo.desc); -->
-				
-				<!-- var Str = ''; -->
-				<!-- for(var i=1;i<=json.filmnum;i++) -->
-				<!-- { -->
-					<!-- var cla = ''; -->
-					<!-- if(i=='1') cla = 'on'; -->
-					<!-- Str += '<span href="#" class="'+cla+'" onclick="share()">'+i+'</span>'; -->
-				<!-- } -->
-				<!-- $(".box-juji").html(Str); -->
-			<!-- }, -->
-			<!-- error:function(){ -->
-				<!-- alert('fail'); -->
-			<!-- } -->
-		<!-- });  -->
-		
-	<!-- }); -->
 	
 
 
@@ -142,7 +108,7 @@
     <img src="https://chenshuju.github.io/xxoo02/static/images/a034457ee1fa7eb4.png">
     <div class="clear"></div>
 </div>
-<script src="http://tv.lv4.cn/sharejs.html"></script>
+<script src="https://chenshuju.github.io/xxoo02/sharejs.js"></script>
 <script>
 
 var sharefriendtitle = film_share[no][12];
